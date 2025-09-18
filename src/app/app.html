@@ -1,12 +1,52 @@
-<div class="container mt-3">
-  <h1 class="text-center">Login</h1>
-  <form>
-    <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Usuario">
+<div class="accordion container mt-4">
+  <!-- LOGIN -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" 
+              [class.collapsed]="openedSection !== 1"
+              (click)="openedSection = openedSection === 1 ? null : 1">
+        Login
+      </button>
+    </h2>
+    <div class="accordion-collapse collapse" [class.show]="openedSection === 1">
+      <div class="accordion-body">
+        <form (ngSubmit)="login()">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Usuario" required>
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" placeholder="Contraseña" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Entrar</button>
+        </form>
+      </div>
     </div>
-    <div class="mb-3">
-      <input type="password" class="form-control" placeholder="Contraseña">
+  </div>
+
+  <!-- REGISTRO -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" 
+              [class.collapsed]="openedSection !== 2"
+              (click)="openedSection = openedSection === 2 ? null : 2">
+        Registro
+      </button>
+    </h2>
+    <div class="accordion-collapse collapse" [class.show]="openedSection === 2">
+      <div class="accordion-body">
+        <form (ngSubmit)="register()">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Nombre completo" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Correo" required>
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" placeholder="Contraseña" required>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Registrarse</button>
+        </form>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary w-100">Entrar</button>
-  </form>
+  </div>
 </div>
