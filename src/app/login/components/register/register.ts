@@ -1,9 +1,10 @@
 import { Component, effect, signal } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-register',
-  imports: [],
+  imports: [ButtonModule],
   templateUrl: './register.html',
   styleUrl: './register.css'
 })
